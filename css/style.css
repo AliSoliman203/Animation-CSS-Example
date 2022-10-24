@@ -1,0 +1,152 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body { 
+  background: #4b443f;
+}
+.loop-wrapper {
+  height: 300px;
+  border-bottom: 3px solid #fff;
+  overflow: hidden;
+  position: relative;
+}
+.mountain {
+  position: absolute;
+  right: -900px;
+  bottom: -20px;
+  width: 2px;
+  height: 2px;
+  box-shadow: 
+    0 0 0 50px #4DB6AC,
+    60px 50px 0 70px #4DB6AC,
+    90px 90px 0 50px #4DB6AC,
+    250px 250px 0 50px #4DB6AC,
+    290px 320px 0 50px #4DB6AC,
+    320px 400px 0 50px #4DB6AC;
+  transform: rotate(130deg);
+  animation: mtn 20s linear infinite;
+}
+.hill {
+  position: absolute;
+  right: -900px;
+  bottom: -50px;
+  width: 400px;
+  border-radius: 50%;
+  height: 20px;
+  box-shadow: 
+    0 0 0 50px #4DB6AC,
+    -20px 0 0 40px #4DB6AC,
+    -90px 0 0 50px #4DB6AC,
+    250px 0 0 50px #4DB6AC,
+    290px 0 0 50px #4DB6AC,
+    620px 0 0 50px #4DB6AC;
+  animation: hill 8s 2s linear infinite;
+}
+.tree {
+  position: absolute;
+  height: 100px; 
+  width: 35px;
+  right: 0;
+  bottom: 0;
+  background: url(../images/tree.svg);
+  animation: tree 6s 0s linear infinite;
+}
+.rock {
+  position: absolute;
+  height: 2%; 
+  width: 1%;
+  right: -50px;
+  bottom: -2px;
+  border-radius: 20px;
+  background: #ddd;
+  animation: rock 8s 0s linear;
+}
+.moon {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  box-shadow: -25px 25px 0 20px #4DB6AC;
+  position: absolute;
+  top: 80px;
+  right: -250px;
+  animation: moon 40s 0s infinite;
+}
+.truck, .wheels {
+  width: 85px;
+  position: absolute;
+  bottom: 0px;
+  animation: truck 15s 0s ease forwards;
+}
+.truck, .truck-rev {
+  background: url(../images/truck.svg);
+  height: 60px;
+}
+.wheels, .wheels-rev {
+  background: url(../images/wheels.svg);
+  height: 15px;
+}
+.truck-rev, .wheels-rev {
+  width: 85px;
+  position: absolute;
+  right: -85px;
+  bottom: 0px;
+  animation: truck-rev 15s 15s ease forwards;
+  transform: rotateY(-180deg);
+}
+.truck:before, .truck-rev:before {
+  content: " ";
+  position: absolute;
+  width: 25px;
+  box-shadow:
+    -30px 28px 0 1.5px #fff,
+    -35px 18px 0 1.5px #fff;
+  animation: wind 1.5s 0s infinite;
+}
+.rev {
+  animation-fill-mode: backwards;
+  animation-direction: reverse;
+  animation-delay: 15s;
+}
+
+@keyframes moon {
+  100% { transform: translate(-2000px); }
+}
+@keyframes tree {
+  100% { transform: translate(-2000px); }
+}
+@keyframes rock {
+  0%   { right: -200px; }
+  100% { right: 2000px; }
+}
+@keyframes truck {
+  0%   { left: -85px; }
+  25%  { transform: translateY(0px); }
+  27%  { transform: translateY(-6px); }
+  28%  { transform: translateY(0px); }
+  30%  { transform: translateY(-1px); }
+  31%  { transform: translateY(0px); }
+  100% { left: 90%; }
+}
+@keyframes truck-rev {
+  0%   { right: -85px; }
+  30%  { transform: translateY(0px) rotateY(-180deg); }
+  32%  { transform: translateY(-6px) rotateY(-180deg); }
+  33%  { transform: translateY(0px) rotateY(-180deg); }
+  35%  { transform: translateY(-1px) rotateY(-180deg); }
+  36%  { transform: translateY(0px) rotateY(-180deg); }
+  100% { right: 90%; }
+}
+@keyframes wind {
+  50%   { transform: translateY(4px); }
+}
+@keyframes mtn {
+  100% { transform: translateX(-2500px) rotate(130deg); }
+}
+@keyframes hill {
+  100% { transform: translateX(-4000px); }
+}
+
+
+
